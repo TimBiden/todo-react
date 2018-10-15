@@ -14,7 +14,7 @@ class Counter extends Component {
     render() {
         return <React.Fragment>
             <ul>
-                {this.state.tags.map( tag => <li>{tag}</li> )}
+                {this.state.tags.map( tag => <li key={tag}>{tag}</li> )}
             </ul>
         </React.Fragment>;
     }
