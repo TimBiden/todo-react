@@ -14,10 +14,10 @@ class ToDos extends Component {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Order</th>
+                            <th scope="col">To Do</th>
+                            <th scope="col">Importance</th>
+                            <th scope="col">Urgency</th>
                         </tr>
                     </thead>
                     <tbody>
