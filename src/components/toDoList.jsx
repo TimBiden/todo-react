@@ -14,10 +14,11 @@ class ToDos extends Component {
     };
 
     render() {
-        if (this.state.toDos.length === 0) return <h4>Congrats! You've completed your entire To Do list!</h4>;
+        const length = this.state.toDos.length;
+        if (length === 0) return <h4>Congrats! You've completed your entire To Do list!</h4>;
 
         return (<div>
-            <h4>You have {this.state.toDos.length} items to do.</h4>
+            <h4>You have {length} items to do.</h4>
             <h3>Items still to be done:</h3>
             <table className="table">
                 <thead>
