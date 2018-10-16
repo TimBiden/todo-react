@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import {getToDos} from '../services/fakeToDoService';
 
+// Originate state
 class ToDos extends Component {
     state = {
         toDos: getToDos()
     };
 
+    // Remove Completed items from ToDo list
     handleComplete = (id) => {
-        const toDos = this.state.toDos.filter(t => t.id !== id);
-        console.log(id);
-        console.log(toDos);
-        // this.setState({toDos: toDos})
+        const toDos = this.state.toDos.filter(t => t._id !== id);
+        this.setState({toDos: toDos})
     };
 
     render() {
@@ -28,6 +28,8 @@ class ToDos extends Component {
                     </tr>
                 </thead>
                 <tbody>
+
+                    {/* List ToDo items with basic info */}
                     {this.state.toDos.map((todo, i) =>(
                             <tr key={todo._id}>
                                 <th scope="row">{i + 1}</th>
@@ -35,6 +37,8 @@ class ToDos extends Component {
                                 <td>{todo.importance}</td>
                                 <td>{todo.urgency}</td>
                                 <td>{todo.hours}</td>
+
+                                {/* Button click - Send item ID to handleComplete function. */}
                                 <td><button onClick={() => this.handleComplete(todo._id)} className='btn btn-danger btn-sm'>Completed</button></td>
                             </tr>
                         ))
