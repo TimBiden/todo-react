@@ -22,7 +22,7 @@ class ToDos extends Component {
                 </thead>
                 <tbody>
                     {this.state.toDos.map((todo, i) =>(
-                            <tr>
+                            <tr key={todo._id}>
                                 <th scope="row">{i + 1}</th>
                                 <td>{todo.activity}</td>
                                 <td>{todo.importance}</td>
