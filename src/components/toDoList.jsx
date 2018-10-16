@@ -7,7 +7,10 @@ class ToDos extends Component {
     };
 
     handleComplete = (id) => {
+        const toDos = this.state.toDos.filter(t => t.id !== id);
         console.log(id);
+        console.log(toDos);
+        // this.setState({toDos: toDos})
     };
 
     render() {
