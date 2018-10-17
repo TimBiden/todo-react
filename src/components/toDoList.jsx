@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {getToDos} from '../services/fakeToDoService';
+import Pagination from './common/pagination';
 
 // Originate state
 class ToDos extends Component {
     state = {
-        toDos: getToDos()
+        toDos: getToDos(),
+        pageSize: 5
     };
 
     // Remove Completed items from ToDo list
@@ -13,13 +15,22 @@ class ToDos extends Component {
         this.setState({toDos: toDos})
     };
 
+    // Edit specified item
+    handleEdit = (id) => {
+        console.log(id);
+    };
+
+    // Handle page changes
+    handlePageChange = (pageSize) => {
+        console.log(pageSize);
+    };
+
     render() {
         const length = this.state.toDos.length;
         if (length === 0) return <h4>Congrats! You've completed your entire To Do list!</h4>;
 
         return (<div>
             <h4>You have {length} items to do.</h4>
-            <h3>Items still to be done:</h3>
             <table className="table">
                 <thead>
                     <tr>
@@ -28,6 +39,7 @@ class ToDos extends Component {
                         <th scope="col">Importance</th>
                         <th scope="col">Urgency</th>
                         <th scope="col">Estimated Hours</th>
+                        <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -44,11 +56,15 @@ class ToDos extends Component {
 
                                 {/* Button click - Send item ID to handleComplete function. */}
                                 <td><button onClick={() => this.handleComplete(todo._id)} className='btn btn-danger btn-sm'>Completed</button></td>
+
+                                {/* Button click - Edit item. */}
+                                <td><button onClick={() => this.handleEdit(todo._id)} className='btn btn-danger btn-sm'>Edit</button></td>
                             </tr>
                         ))
                     }
                 </tbody>
             </table>
+            <Pagination itemCount={length} pageSize={this.state.pageSize} onPageChange={this.handlePageChange} />
         </div>);
     }
 }
