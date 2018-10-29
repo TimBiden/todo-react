@@ -6,7 +6,7 @@ import Pagination from './common/pagination';
 class ToDos extends Component {
     state = {
         toDos: getToDos(),
-        pageSize: 5
+        pageSize: 10
     };
 
     // Remove Completed items from ToDo list
@@ -38,7 +38,7 @@ class ToDos extends Component {
                         <th scope="col">To Do</th>
                         <th scope="col">Importance</th>
                         <th scope="col">Urgency</th>
-                        <th scope="col">Estimated Hours</th>
+                        <th scope="col">Hours</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
