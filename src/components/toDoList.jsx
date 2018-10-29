@@ -6,7 +6,7 @@ import Pagination from './common/pagination';
 class ToDos extends Component {
     state = {
         toDos: getToDos(),
-        pageSize: 10
+        pageSize: 5
     };
 
     // Remove Completed items from ToDo list

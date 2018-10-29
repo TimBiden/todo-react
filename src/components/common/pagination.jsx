@@ -5,11 +5,10 @@ const Pagination = (props) => {
     // Get number of pages.
     const { itemCount, pageSize } = props;
     const pageCount = itemCount / pageSize;
-    console.log(pageCount);
-
-    if (pageCount < 2) return null;
-
     const pages = _.range(1, pageCount + 1);
+
+    // Quit without displaying pages if < 2
+    if (pageCount <= 1) return null;
 
     return (
         <nav aria-label="Page navigation example">
