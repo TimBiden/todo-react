@@ -5,8 +5,9 @@ import Pagination from './common/pagination';
 // Originate state
 class ToDos extends Component {
     state = {
-        toDos: getToDos(),
-        pageSize: 5
+        currentPage: 1,
+        pageSize: 5,
+        toDos: getToDos()
     };
 
     // Remove Completed items from ToDo list
@@ -21,12 +22,13 @@ class ToDos extends Component {
     };
 
     // Handle page changes
-    handlePageChange = (pageSize) => {
-        console.log(pageSize);
+    handlePageChange = (page) => {
+        this.setState({ currentPage: page });
     };
 
     render() {
         const length = this.state.toDos.length;
+        const {pageSize, currentPage} = this.state;
         if (length === 0) return <h4>Congrats! You've completed your entire To Do list!</h4>;
 
         return (<div>
@@ -64,7 +66,12 @@ class ToDos extends Component {
                     }
                 </tbody>
             </table>
-            <Pagination itemCount={length} pageSize={this.state.pageSize} onPageChange={this.handlePageChange} />
+            <Pagination
+                currentPage={currentPage}
+                itemCount={length}
+                pageSize={pageSize}
+                onPageChange={this.handlePageChange}
+            />
         </div>);
     }
 }

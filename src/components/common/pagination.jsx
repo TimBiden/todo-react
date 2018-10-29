@@ -2,8 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 
 const Pagination = (props) => {
+    console.log(`currentPage ${props.currentPage}`);
     // Get number of pages.
-    const { itemCount, pageSize } = props;
+    const { currentPage, itemCount, pageSize, onPageChange } = props;
     const pageCount = itemCount / pageSize;
     const pages = _.range(1, pageCount + 1);
 
@@ -16,8 +17,8 @@ const Pagination = (props) => {
 
                 {/* Iterate through page numbers and display them at bottom. */}
                 {pages.map(page => (
-                    <li key={page} className="page-item">
-                        <a className="page-link">{page}</a>
+                    <li key={page} className={page === currentPage ? 'page-item active' : 'page-item'}>
+                        <a className="page-link" onClick={() => onPageChange(page)}>{page}</a>
                     </li>
                 ))}
             </ul>
