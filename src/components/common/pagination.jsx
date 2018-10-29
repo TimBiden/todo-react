@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 
 const Pagination = (props) => {
-    console.log(`currentPage ${props.currentPage}`);
     // Get number of pages.
     const { currentPage, itemCount, pageSize, onPageChange } = props;
     const pageCount = itemCount / pageSize;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {getToDos} from '../services/fakeToDoService';
 import Pagination from './common/pagination';
+import paginate from '../utils/paginate';
 
 // Originate state
 class ToDos extends Component {
@@ -31,6 +32,8 @@ class ToDos extends Component {
         const {pageSize, currentPage} = this.state;
         if (length === 0) return <h4>Congrats! You've completed your entire To Do list!</h4>;
 
+        const items = paginate(this.state.toDos, currentPage, pageSize);
+
         return (<div>
             <h4>You have {length} items to do.</h4>
             <table className="table">
@@ -48,7 +51,7 @@ class ToDos extends Component {
                 <tbody>
 
                     {/* List ToDo items with basic info */}
-                    {this.state.toDos.map((todo, i) =>(
+                    {items.map((todo, i) =>(
                             <tr key={todo._id}>
                                 <th scope="row">{i + 1}</th>
                                 <td>{todo.activity}</td>
