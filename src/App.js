@@ -16,7 +16,8 @@ class App extends Component {
 
             <div className='content'>
                 <Switch>
-                    <Route path='/newtodo' render={() => <NewToDo propData="Something Here." />} />
+                    <Route path='/posts/:year/:month' component={Posts} />
+                    <Route path='/newtodo' component={NewToDo} />
                     <Route path='/todolist' component={ToDos} />
                     <Route path='/' component={Home} />
                 </Switch>
