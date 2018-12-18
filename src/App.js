@@ -4,6 +4,7 @@ import NavBar from "./components/common/navbar";
 import ToDos from "./components/toDoList";
 import NewToDo from "./components/newToDo";
 import Home from "./components/home";
+import LoginForm from "./components/loginForm";
 import NotFound from "./components/notFound";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -17,6 +18,7 @@ class App extends Component {
           {/* These are activated in the order they're found. */}
           {/* "/not-found" MUST go after everything else.*/}
           <Switch>
+            <Route path="/login" component={LoginForm} />
             <Route path="/newtodo" component={NewToDo} />
             <Route path="/todolist" component={ToDos} />
             <Redirect from="/messages" to="/todolist" />
