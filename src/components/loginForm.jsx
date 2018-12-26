@@ -1,18 +1,26 @@
 import React, { Component } from "react";
 
 class LoginForm extends Component {
+  handleSubmit = event => {
+    event.preventDefault();
+
+    // Submit to server
+    console.log(event);
+    console.log("Submitted.");
+  };
+
   render() {
     return (
       <div>
         <h1>Login</h1>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email address</label>
             <input
               type="email"
               className="form-control"
-              id="exampleInputEmail1"
+              id="email"
               aria-describedby="emailHelp"
               placeholder="Enter email"
             />
@@ -25,16 +33,12 @@ class LoginForm extends Component {
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              id="password"
               placeholder="Password"
             />
           </div>
           <div className="form-group form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
+            <input type="checkbox" className="form-check-input" id="checkbox" />
             <label className="form-check-label" htmlFor="stayLoggedIn">
               Stay logged in.
             </label>
