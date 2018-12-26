@@ -5,7 +5,14 @@ class LoginForm extends Component {
     event.preventDefault();
 
     // Submit to server
-    console.log(event);
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const checkbox = document.getElementById("checkbox").value;
+
+    console.log(email);
+    console.log(password);
+    console.log(checkbox);
+
     console.log("Submitted.");
   };
 
