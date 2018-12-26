@@ -8,7 +8,7 @@ class LoginForm extends Component {
 
         <form>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
+            <label htmlFor="email">Email address</label>
             <input
               type="email"
               className="form-control"
@@ -21,7 +21,7 @@ class LoginForm extends Component {
             </small>
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               className="form-control"
@@ -35,8 +35,8 @@ class LoginForm extends Component {
               className="form-check-input"
               id="exampleCheck1"
             />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
+            <label className="form-check-label" htmlFor="stayLoggedIn">
+              Stay logged in.
             </label>
           </div>
           <button type="submit" className="btn btn-primary">
