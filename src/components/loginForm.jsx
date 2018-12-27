@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 
 class LoginForm extends Component {
+  email = React.createRef();
+  password = React.createRef();
+  checkbox = React.createRef();
+
   handleSubmit = event => {
     event.preventDefault();
 
     // Submit to server
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const checkbox = document.getElementById("stayLoggedIn").checked;
+    const email = this.email.current.value;
+    const password = this.password.current.value;
+    const checkbox = this.checkbox.current.checked;
 
     console.log(email);
     console.log(password);
@@ -25,6 +29,7 @@ class LoginForm extends Component {
           <div className="form-group">
             <label htmlFor="email">Email address</label>
             <input
+              ref={this.email}
               type="email"
               className="form-control"
               id="email"
@@ -38,6 +43,7 @@ class LoginForm extends Component {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
+              ref={this.password}
               type="password"
               className="form-control"
               id="password"
@@ -46,6 +52,7 @@ class LoginForm extends Component {
           </div>
           <div className="form-group form-check">
             <input
+              ref={this.checkbox}
               type="checkbox"
               className="form-check-input"
               id="stayLoggedIn"
