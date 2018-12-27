@@ -7,11 +7,9 @@ class LoginForm extends Component {
     // Submit to server
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const checkbox = document.getElementById("checkbox").value;
 
     console.log(email);
     console.log(password);
-    console.log(checkbox);
 
     console.log("Submitted.");
   };
@@ -43,12 +41,6 @@ class LoginForm extends Component {
               id="password"
               placeholder="Password"
             />
-          </div>
-          <div className="form-group form-check">
-            <input type="checkbox" className="form-check-input" id="checkbox" />
-            <label className="form-check-label" htmlFor="stayLoggedIn">
-              Stay logged in.
-            </label>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
