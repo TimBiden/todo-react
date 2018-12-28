@@ -5,6 +5,10 @@ class LoginForm extends Component {
   password = React.createRef();
   checkbox = React.createRef();
 
+  componentDidMount() {
+    this.email.current.focus();
+  }
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -13,10 +17,10 @@ class LoginForm extends Component {
     const password = this.password.current.value;
     const checkbox = this.checkbox.current.checked;
 
+    // Log Results
     console.log(email);
     console.log(password);
     console.log(checkbox);
-
     console.log("Submitted.");
   };
 
