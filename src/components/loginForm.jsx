@@ -5,10 +5,6 @@ class LoginForm extends Component {
   password = React.createRef();
   checkbox = React.createRef();
 
-  componentDidMount() {
-    this.email.current.focus();
-  }
-
   handleSubmit = event => {
     event.preventDefault();
 
@@ -33,6 +29,7 @@ class LoginForm extends Component {
           <div className="form-group">
             <label htmlFor="email">Email address</label>
             <input
+              autoFocus
               ref={this.email}
               type="email"
               className="form-control"
