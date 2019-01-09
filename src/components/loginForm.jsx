@@ -2,9 +2,10 @@ import React, { Component } from "react";
 
 class LoginForm extends Component {
   state = {
-    accoun: {
-      username: "",
-      password: ""
+    account: {
+      email: "",
+      password: "",
+      checkbox: false
     }
   };
 
@@ -37,6 +38,7 @@ class LoginForm extends Component {
             <label htmlFor="email">Email address</label>
             <input
               autoFocus
+              value={this.state.account.email}
               ref={this.email}
               type="email"
               className="form-control"
