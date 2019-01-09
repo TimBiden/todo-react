@@ -5,21 +5,29 @@ class LoginForm extends Component {
     account: {
       email: "",
       password: "",
-      checkbox: false
+      checkbox: ""
     }
   };
 
-  email = React.createRef();
-  password = React.createRef();
-  checkbox = React.createRef();
+  handleChange = event => {
+    const account = { ...this.state.account };
+
+    if (event.currentTarget.name === "checkbox") {
+      console.log(event.currentTarget);
+      account[event.currentTarget.name] = event.currentTarget.checked;
+    }
+
+    account[event.currentTarget.name] = event.currentTarget.value;
+    this.setState({ account });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
 
     // Submit to server
-    const email = this.email.current.value;
-    const password = this.password.current.value;
-    const checkbox = this.checkbox.current.checked;
+    const email = this.state.account.email;
+    const password = this.state.account.password;
+    const checkbox = this.state.account.checkbox;
 
     // Log Results
     console.log(email);
@@ -39,7 +47,8 @@ class LoginForm extends Component {
             <input
               autoFocus
               value={this.state.account.email}
-              ref={this.email}
+              onChange={this.handleChange}
+              name={"email"}
               type="email"
               className="form-control"
               id="email"
@@ -53,7 +62,9 @@ class LoginForm extends Component {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
-              ref={this.password}
+              value={this.state.account.password}
+              onChange={this.handleChange}
+              name={"password"}
               type="password"
               className="form-control"
               id="password"
@@ -62,7 +73,9 @@ class LoginForm extends Component {
           </div>
           <div className="form-group form-check">
             <input
-              ref={this.checkbox}
+              value={this.state.account.checkbox}
+              onChange={this.handleChange}
+              name={"checkbox"}
               type="checkbox"
               className="form-check-input"
               id="stayLoggedIn"
