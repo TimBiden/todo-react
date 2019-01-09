@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 
 class LoginForm extends Component {
+  state = {
+    accoun: {
+      username: "",
+      password: ""
+    }
+  };
+
   email = React.createRef();
   password = React.createRef();
   checkbox = React.createRef();
