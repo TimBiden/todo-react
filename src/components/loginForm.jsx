@@ -4,18 +4,12 @@ class LoginForm extends Component {
   state = {
     account: {
       email: "",
-      password: "",
-      checkbox: ""
+      password: ""
     }
   };
 
   handleChange = event => {
     const account = { ...this.state.account };
-
-    if (event.currentTarget.name === "checkbox") {
-      console.log(event.currentTarget);
-      account[event.currentTarget.name] = event.currentTarget.checked;
-    }
 
     account[event.currentTarget.name] = event.currentTarget.value;
     this.setState({ account });
@@ -27,12 +21,10 @@ class LoginForm extends Component {
     // Submit to server
     const email = this.state.account.email;
     const password = this.state.account.password;
-    const checkbox = this.state.account.checkbox;
 
     // Log Results
     console.log(email);
     console.log(password);
-    console.log(checkbox);
     console.log("Submitted.");
   };
 
@@ -70,19 +62,6 @@ class LoginForm extends Component {
               id="password"
               placeholder="Password"
             />
-          </div>
-          <div className="form-group form-check">
-            <input
-              value={this.state.account.checkbox}
-              onChange={this.handleChange}
-              name={"checkbox"}
-              type="checkbox"
-              className="form-check-input"
-              id="stayLoggedIn"
-            />
-            <label className="form-check-label" htmlFor="stayLoggedIn">
-              Stay logged in.
-            </label>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
