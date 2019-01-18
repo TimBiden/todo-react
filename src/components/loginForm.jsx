@@ -8,10 +8,10 @@ class LoginForm extends Component {
     }
   };
 
-  handleChange = event => {
+  handleChange = ({ currentTarget: input }) => {
     const account = { ...this.state.account };
 
-    account[event.currentTarget.name] = event.currentTarget.value;
+    account[input.name] = input.value;
     this.setState({ account });
   };
 
@@ -29,6 +29,8 @@ class LoginForm extends Component {
   };
 
   render() {
+    const { account } = this.state;
+
     return (
       <div>
         <h1>Login</h1>
@@ -38,7 +40,7 @@ class LoginForm extends Component {
             <label htmlFor="email">Email address</label>
             <input
               autoFocus
-              value={this.state.account.email}
+              value={account.email}
               onChange={this.handleChange}
               name={"email"}
               type="email"
@@ -54,7 +56,7 @@ class LoginForm extends Component {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
-              value={this.state.account.password}
+              value={account.password}
               onChange={this.handleChange}
               name={"password"}
               type="password"
