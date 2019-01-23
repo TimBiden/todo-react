@@ -13,7 +13,7 @@ const Input = ({ name, label, value, onChange }) => {
         className="form-control"
         id={name}
         aria-describedby="emailHelp"
-        placeholder="Enter email"
+        placeholder={"Enter " + label}
       />
     </div>
   );
