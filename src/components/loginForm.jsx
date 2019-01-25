@@ -6,8 +6,14 @@ class LoginForm extends Component {
     account: {
       email: "",
       password: ""
+    },
+    errors: {
+      email: "Not a valid email address.",
+      password: "Password is too short."
     }
   };
+
+  // Find errors: `currentError = errors['username']` etc.
 
   handleChange = ({ currentTarget: input }) => {
     const account = { ...this.state.account };
