@@ -7,10 +7,7 @@ class LoginForm extends Component {
       email: "",
       password: ""
     },
-    errors: {
-      email: "Not a valid email address.",
-      password: "Password is too short."
-    }
+    errors: {}
   };
 
   // Find errors: `currentError = errors['username']` etc.
@@ -22,8 +19,16 @@ class LoginForm extends Component {
     this.setState({ account });
   };
 
+  validate = () => {
+    return { email: "Email Address is required." };
+  };
+
   handleSubmit = event => {
     event.preventDefault();
+
+    const err = this.validate();
+    this.setState({ errors });
+    if (errors) return;
 
     // Submit to server
     const email = this.state.account.email;
