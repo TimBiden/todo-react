@@ -28,7 +28,7 @@ class LoginForm extends Component {
 
     const err = this.validate();
     this.setState({ errors });
-    if (errors) return;
+    if (this.state.errors) return;
 
     // Submit to server
     const email = this.state.account.email;
