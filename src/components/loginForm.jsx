@@ -28,7 +28,7 @@ class LoginForm extends Component {
     }
 
     if (account.password.trim() === "") {
-      errors.email = "Password is required.";
+      errors.password = "Password is required.";
     }
 
     return errors;
