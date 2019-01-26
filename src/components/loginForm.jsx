@@ -20,7 +20,18 @@ class LoginForm extends Component {
   };
 
   validate = () => {
-    return { email: "Email Address is required." };
+    const errors = {};
+    const { account } = this.state;
+
+    if (account.email.trim() === "") {
+      errors.email = "Email Address is required.";
+    }
+
+    if (account.password.trim() === "") {
+      errors.email = "Password is required.";
+    }
+
+    return errors;
   };
 
   handleSubmit = event => {
